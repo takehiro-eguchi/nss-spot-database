@@ -17,5 +17,4 @@ PostgresSQLをインストールしてください。以下の条件でインス
 psql -U postgres -f dml1_create.sql
 psql -U postgres -f dml1_create2.sql
 psql -U postgres -f transaction.sql
-
 ```

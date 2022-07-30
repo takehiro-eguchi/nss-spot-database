@@ -26,19 +26,29 @@ public class Main2 {
 
         // StatementとPreparedStatementとで実行時間に差があるか検証
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
-            // Statement
-			System.out.println("--------------------Statement--------------------");
-			long sStart = System.nanoTime();
-			executeByStatement(con);
-			System.out.println("Time = " + ((System.nanoTime() - sStart) / 1000000) + " [ms]");
-
-            System.out.print(NEW_LINE);
-
 			// PreparedStatement
 			System.out.println("----------------PreparedStatement----------------");
 			long pStart = System.nanoTime();
 			executeByPreparedStatement(con);
 			System.out.println("Time = " + ((System.nanoTime() - pStart) / 1000000) + " [ms]");
+
+            // Statement
+            System.out.println("--------------------Statement--------------------");
+            long sStart = System.nanoTime();
+            executeByStatement(con);
+            System.out.println("Time = " + ((System.nanoTime() - sStart) / 1000000) + " [ms]");
+            
+			// PreparedStatement
+			System.out.println("----------------PreparedStatement----------------");
+			pStart = System.nanoTime();
+			executeByPreparedStatement(con);
+			System.out.println("Time = " + ((System.nanoTime() - pStart) / 1000000) + " [ms]");
+			
+            // Statement
+            System.out.println("--------------------Statement--------------------");
+            sStart = System.nanoTime();
+            executeByStatement(con);
+            System.out.println("Time = " + ((System.nanoTime() - sStart) / 1000000) + " [ms]");
 		}
 	}
 
@@ -71,14 +81,14 @@ public class Main2 {
 	}
 
 	private static void printResult(ResultSet rs) throws SQLException {
-		System.out.println("orderid,itemid,quantity");
+//		System.out.println("orderid,itemid,quantity");
 		while (rs.next()) {
 			int orderId = rs.getInt("orderid");
 			int itemid = rs.getInt("itemid");
 			int quantity = rs.getInt("quantity");
-			System.out.println(String.format("%d,%d,%d", orderId, itemid, quantity));
+//			System.out.println(String.format("%d,%d,%d", orderId, itemid, quantity));
 		}
-		System.out.print(NEW_LINE);
+//		System.out.print(NEW_LINE);
 	}
 
 }
