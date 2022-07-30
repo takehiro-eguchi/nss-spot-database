@@ -12,10 +12,9 @@ public class Main3 {
 
 	/**
 	 * @param args
-	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws  SQLException {
 		// DB接続情報
 		String dbname = "postgres";
 		String url = "jdbc:postgresql://localhost:5432/" + dbname;

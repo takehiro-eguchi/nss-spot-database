@@ -13,16 +13,14 @@ public class Main2 {
 
 	/**
 	 * @param args
-	 * @throws ClassNotFoundException
 	 * @throws SQLException
 	 */
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	public static void main(String[] args) throws SQLException {
 		// DB接続情報
 		String dbname = "postgres";
 		String url = "jdbc:postgresql://localhost:5432/" + dbname;
 		String user = "postgres";
 		String password = "postgres";
-
 
         // StatementとPreparedStatementとで実行時間に差があるか検証
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
