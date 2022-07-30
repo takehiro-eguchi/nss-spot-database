@@ -14,9 +14,6 @@ public class Main{
 	 * @throws SQLException
 	 */
 	public static void main(String[] args) throws ClassNotFoundException {
-		// JDBCドライバの登録
-		Class.forName("org.postgresql.Driver");
-
 		// DB接続情報
 		String dbname   = "postgres";
 		String url = "jdbc:postgresql://localhost:5432/" + dbname;
