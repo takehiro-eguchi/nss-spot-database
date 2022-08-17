@@ -23,21 +23,22 @@ public class Main3 {
 
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
 			System.out.println("--------------------Pattern1--------------------");
-			execute(con, "生駒里奈");
+			execute(con, "ルフィ");
 			System.out.print(NEW_LINE);
 			System.out.println("--------------------Pattern2--------------------");
-			execute(con, "生駒里奈' OR 'A' = 'A");
+			execute(con, "ルフィ' OR 'A' = 'A");
 		}
 	}
 
 	private static void execute(Connection con, String arg) throws SQLException {
 		String sql = "SELECT * FROM users WHERE name = '" + escape_quote(arg) + "'";
+		System.out.println("Executing SQL = " + sql);
 		try (Statement stmt = con.createStatement()) {
 			try (ResultSet rs = stmt.executeQuery(sql)) {
 				while (rs.next()) {
 					int id = rs.getInt("id");
 					String name = rs.getString("name");
-					String pref = rs.getString("pref");
+					String pref = rs.getString("birth");
 					System.out.println(String.format("%d,%s,%s", id, name, pref));
 				}
 			}
