@@ -8,7 +8,6 @@ import java.sql.Statement;
 
 
 public class Main3 {
-	private static final String NEW_LINE = System.getProperty("line.separator");
 
 	/**
 	 * @param args
@@ -24,7 +23,7 @@ public class Main3 {
 		try (Connection con = DriverManager.getConnection(url, user, password)) {
 			System.out.println("--------------------Pattern1--------------------");
 			execute(con, "ルフィ");
-			System.out.print(NEW_LINE);
+			System.out.println();
 			System.out.println("--------------------Pattern2--------------------");
 			execute(con, "ルフィ' OR 'A' = 'A");
 		}
